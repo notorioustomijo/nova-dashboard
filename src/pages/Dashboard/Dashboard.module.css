@@ -1,0 +1,246 @@
+/* pages/Dashboard/Dashboard.module.css */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 2rem;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.widgetButton {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.widgetButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.pageDescription {
+  font-size: 1rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* NEW: Side-by-side sections container */
+.recentSections {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.section {
+  flex: 1;
+  min-width: 0; /* Prevents flex items from overflowing */
+}
+
+/* Stack sections vertically on smaller screens */
+@media (max-width: 968px) {
+  .recentSections {
+    flex-direction: column;
+  }
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.viewAllBtn {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: #667eea;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.viewAllBtn:hover {
+  background-color: #f0f3ff;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.table td {
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: #111827;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.nameCell {
+  font-weight: 500;
+}
+
+.sessionCell {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.dateCell {
+  color: #6b7280;
+  font-size: 0.8125rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.sales {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.support {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.general {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.feedback {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+}
+
+.emptyState {
+  background-color: white;
+  border-radius: 12px;
+  border: 2px dashed #e5e7eb;
+  padding: 3rem;
+  text-align: center;
+  color: #9ca3af;
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.25rem; /* Unified and reduced */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem; /* Unified */
+  gap: 2rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .pageTitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.125rem; /* Tighter on mobile */
+  }
+  .header {
+    margin-bottom: 1rem;
+  }
+  .metricsGrid {
+    gap: 1rem;
+  }
+  .recentSections {
+    gap: 1.5rem;
+  }
+  .card {
+    overflow-x: auto; /* Allow table scroll on mobile */
+  }
+  .table th, .table td {
+    padding: 0.5rem 0.75rem; /* Reduced padding for mobile */
+  }
+}

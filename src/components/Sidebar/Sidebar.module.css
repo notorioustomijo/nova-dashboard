@@ -1,0 +1,219 @@
+.sidebar {
+  width: 260px;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  transition: width 0.3s ease;
+}
+
+.sidebarHeader {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoText {
+  transition: opacity 0.3s ease;
+}
+
+.businessName {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: transparent;
+  color: #4b5563;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  width: 100%;
+}
+
+.navItem:hover {
+  background-color: #f9fafb;
+}
+
+.navItemActive {
+  background-color: #f0f3ff;
+  color: #667eea;
+}
+
+.navIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.navLabel {
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.sidebarFooter {
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.userDetails {
+  flex: 1;
+  min-width: 0;
+  transition: opacity 0.3s ease;
+}
+
+.userEmail {
+  font-size: 0.875rem;
+  color: #111827;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logoutBtn {
+  font-size: 0.75rem;
+  color: #ef4444;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: opacity 0.2s;
+}
+
+.logoutBtn:hover {
+  opacity: 0.8;
+}
+
+/* Tablet - Collapse to icons only */
+@media (max-width: 968px) {
+  .sidebar {
+    width: 80px;
+  }
+
+  .logoText,
+  .businessName,
+  .navLabel,
+  .userDetails {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  .navItem {
+    justify-content: center;
+    padding: 0.75rem;
+  }
+
+  .userInfo {
+    justify-content: center;
+  }
+
+  .sidebarHeader {
+    padding: 1rem;
+  }
+}
+
+/* Mobile - Sidebar slides in as overlay */
+@media (max-width: 640px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 260px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1001;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Show full labels on mobile when open */
+  .sidebarOpen .logoText,
+  .sidebarOpen .businessName,
+  .sidebarOpen .navLabel,
+  .sidebarOpen .userDetails {
+    opacity: 1;
+    width: auto;
+    overflow: visible;
+  }
+}
+

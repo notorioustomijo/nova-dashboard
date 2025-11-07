@@ -1,0 +1,174 @@
+.authContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9fafb;
+    padding: 1rem;
+  }
+  
+  .authCard {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 420px;
+  }
+  
+  .authHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .authTitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+  
+  .authSubtitle {
+    font-size: 1rem;
+    color: #6b7280;
+  }
+  
+  .authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  .input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+  
+  .hint {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin: 0;
+  }
+  
+  .authButton {
+    padding: 0.875rem 1.5rem;
+    background-color: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background-color 0.2s;
+  }
+  
+  .authButton:hover {
+    background-color: #5568d3;
+  }
+  
+  .authButtonDisabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+  }
+  
+  .authButtonDisabled:hover {
+    background-color: #9ca3af;
+  }
+  
+  .authFooter {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  .linkButton {
+    color: #667eea;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  
+  .linkButton:hover {
+    text-decoration: underline;
+  }
+  
+  .errorBox {
+    padding: 0.875rem;
+    background-color: #fee2e2;
+    color: #991b1b;
+    border-radius: 8px;
+    font-size: 0.875rem;
+  }
+  
+  .successBox {
+    padding: 0.875rem;
+    background-color: #d1fae5;
+    color: #065f46;
+    border-radius: 8px;
+    font-size: 0.875rem;
+  }
+
+.verificationCard {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.verificationIcon {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+.verificationIconSuccess {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  color: #10b981;
+}
+
+.verificationIconError {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  color: #ef4444;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
