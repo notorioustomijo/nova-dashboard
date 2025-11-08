@@ -148,37 +148,8 @@ export default function PublicTestAgentPage() {
           </p>
           <p style={styles.verificationSubtext}>
             Click the link in the email to verify your account, then log in.
-          </p>verificationCard: {
-  textAlign: 'center',
-  padding: '2rem'
-},
-verificationIcon: {
-  fontSize: '4rem',
-  marginBottom: '1rem'
-},
-verificationText: {
-  fontSize: '0.875rem',
-  color: '#111827',
-  marginBottom: '0.75rem',
-  lineHeight: '1.5'
-},
-verificationSubtext: {
-  fontSize: '0.8125rem',
-  color: '#6b7280',
-  marginBottom: '1.5rem',
-  lineHeight: '1.5'
-},
-closeModalButton: {
-  width: '100%',
-  padding: '0.875rem',
-  background: '#667eea',
-  color: 'white',
-  border: 'none',
-  borderRadius: '8px',
-  fontSize: '0.875rem',
-  fontWeight: '600',
-  cursor: 'pointer'
-},
+          </p>
+
           <button
             onClick={() => {
               setShowSignupModal(false);
