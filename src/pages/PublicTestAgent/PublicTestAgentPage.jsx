@@ -17,6 +17,8 @@ export default function PublicTestAgentPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [signupError, setSignupError] = useState('');
   const [signupLoading, setSignupLoading] = useState(false);
+  const [signupSuccess, setSignupSuccess] = useState(false);
+  const [verificationEmail, setVerificationEmail] = useState('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const iframeRef = useRef(null);
 
@@ -106,7 +108,10 @@ export default function PublicTestAgentPage() {
       });
 
       if (response.ok) {
-        window.location.href = '/';
+        //Show verification message
+        setVerificationEmail(email);
+        setSignupSuccess(true);
+        setSignupError('');
       } else {
         const error = await response.json();
         setSignupError(error.detail || 'Signup failed');
@@ -129,74 +134,131 @@ export default function PublicTestAgentPage() {
       )}
 
       {/* Signup Modal */}
-      {showSignupModal && (
-        <div style={styles.modalOverlay} onClick={() => setShowSignupModal(false)}>
-          <div style={styles.modal} className="signup-modal" onClick={(e) => e.stopPropagation()}>
-            <div style={styles.modalHeader}>
-              <h3 style={styles.modalTitle}>🚀 Sign Up to Continue</h3>
-              <button style={styles.modalClose} onClick={() => setShowSignupModal(false)}>×</button>
-            </div>
-            <div style={styles.modalBody}>
-              {signupError && <div style={styles.errorBox}>{signupError}</div>}
-              
-              <div style={styles.formGroup}>
-                <label style={styles.label}>Business Name</label>
-                <input
-                  type="text"
-                  value={signupBusinessName}
-                  onChange={(e) => setSignupBusinessName(e.target.value)}
-                  placeholder={businessName || "Your Business"}
-                  style={styles.input}
-                />
-              </div>
-
-              <div style={styles.formGroup}>
-                <label style={styles.label}>Email</label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@example.com"
-                  style={styles.input}
-                />
-              </div>
-
-              <div style={styles.formGroup}>
-                <label style={styles.label}>Password</label>
-                <div style={{position: 'relative'}}>
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="••••••••"
-                    style={{...styles.input, paddingRight: '3rem'}}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    style={styles.passwordToggle}
-                  >
-                    {showPassword ? '👁️' : '👁️‍🗨️'}
-                  </button>
-                </div>
-                <p style={styles.hint}>Minimum 8 characters</p>
-              </div>
-
-              <ul style={styles.modalFeatures}>
-                <li>✅ Use your demo configuration</li>
-                <li>✅ Unlimited conversations</li>
-                <li>✅ View analytics & leads</li>
-                <li>✅ Deploy to your website</li>
-              </ul>
-            </div>
-            <div style={styles.modalFooter}>
-              <button style={styles.signupButton} onClick={handleSignup} disabled={signupLoading}>
-                {signupLoading ? 'Creating Account...' : 'Create Free Account'}
-              </button>
-            </div>
-          </div>
+      {/* Signup Modal */}
+{showSignupModal && (
+  <div style={styles.modalOverlay} onClick={() => setShowSignupModal(false)}>
+    <div style={styles.modal} className="signup-modal" onClick={(e) => e.stopPropagation()}>
+      {signupSuccess ? (
+        // Verification message
+        <div style={styles.verificationCard}>
+          <div style={styles.verificationIcon}>📧</div>
+          <h3 style={styles.modalTitle}>Check Your Email</h3>
+          <p style={styles.verificationText}>
+            We've sent a verification link to <strong>{verificationEmail}</strong>
+          </p>
+          <p style={styles.verificationSubtext}>
+            Click the link in the email to verify your account, then log in.
+          </p>verificationCard: {
+  textAlign: 'center',
+  padding: '2rem'
+},
+verificationIcon: {
+  fontSize: '4rem',
+  marginBottom: '1rem'
+},
+verificationText: {
+  fontSize: '0.875rem',
+  color: '#111827',
+  marginBottom: '0.75rem',
+  lineHeight: '1.5'
+},
+verificationSubtext: {
+  fontSize: '0.8125rem',
+  color: '#6b7280',
+  marginBottom: '1.5rem',
+  lineHeight: '1.5'
+},
+closeModalButton: {
+  width: '100%',
+  padding: '0.875rem',
+  background: '#667eea',
+  color: 'white',
+  border: 'none',
+  borderRadius: '8px',
+  fontSize: '0.875rem',
+  fontWeight: '600',
+  cursor: 'pointer'
+},
+          <button
+            onClick={() => {
+              setShowSignupModal(false);
+              setSignupSuccess(false);
+            }}
+            style={styles.closeModalButton}
+          >
+            Close
+          </button>
         </div>
+      ) : (
+        // Your existing signup form stays exactly as is
+        <>
+          <div style={styles.modalHeader}>
+            <h3 style={styles.modalTitle}>🚀 Sign Up to Continue</h3>
+            <button style={styles.modalClose} onClick={() => setShowSignupModal(false)}>×</button>
+          </div>
+          <div style={styles.modalBody}>
+            {signupError && <div style={styles.errorBox}>{signupError}</div>}
+            
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Business Name</label>
+              <input
+                type="text"
+                value={signupBusinessName}
+                onChange={(e) => setSignupBusinessName(e.target.value)}
+                placeholder={businessName || "Your Business"}
+                style={styles.input}
+              />
+            </div>
+
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Email</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+                style={styles.input}
+              />
+            </div>
+
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Password</label>
+              <div style={{position: 'relative'}}>
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  style={{...styles.input, paddingRight: '3rem'}}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={styles.passwordToggle}
+                >
+                  {showPassword ? '👁️' : '👁️‍🗨️'}
+                </button>
+              </div>
+              <p style={styles.hint}>Minimum 8 characters</p>
+            </div>
+
+            <ul style={styles.modalFeatures}>
+              <li>✅ Use your demo configuration</li>
+              <li>✅ Unlimited conversations</li>
+              <li>✅ View analytics & leads</li>
+              <li>✅ Deploy to your website</li>
+            </ul>
+          </div>
+          <div style={styles.modalFooter}>
+            <button style={styles.signupButton} onClick={handleSignup} disabled={signupLoading}>
+              {signupLoading ? 'Creating Account...' : 'Create Free Account'}
+            </button>
+          </div>
+        </>
       )}
+    </div>
+  </div>
+)}
 
       {/* Mobile overlay for sidebar */}
       {sidebarOpen && (
@@ -1048,7 +1110,38 @@ const styles = {
     fontSize: '0.8125rem',
     color: '#6b7280',
     fontWeight: '500'
-  }
+  },
+  verificationCard: {
+    textAlign: 'center',
+    padding: '2rem'
+  },
+  verificationIcon: {
+    fontSize: '4rem',
+    marginBottom: '1rem'
+  },
+  verificationText: {
+    fontSize: '0.875rem',
+    color: '#111827',
+    marginBottom: '0.75rem',
+    lineHeight: '1.5'
+  },
+  verificationSubtext: {
+    fontSize: '0.8125rem',
+    color: '#6b7280',
+    marginBottom: '1.5rem',
+    lineHeight: '1.5'
+  },
+  closeModalButton: {
+    width: '100%',
+    padding: '0.875rem',
+    background: '#667eea',
+    color: 'white',
+    border: 'none',
+    borderRadius: '8px',
+    fontSize: '0.875rem',
+    fontWeight: '600',
+    cursor: 'pointer'
+  },
 };
 
 if (typeof document !== 'undefined') {
