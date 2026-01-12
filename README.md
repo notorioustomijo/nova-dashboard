@@ -2,7 +2,7 @@
 
 AI-powered customer support platform with conversational chat interface, session management, and analytics dashboard.
 
-## 🚀 Live Demo
+## Live Demo
 
 **Dashboard:** https://nova.mavrikon.net/demo
 
@@ -12,7 +12,7 @@ AI-powered customer support platform with conversational chat interface, session
 
 ⚠️ **Note:** Backend is hosted on free tier. First visit may take 30-60 seconds to wake up. This is normal for demo projects. Please wait for initial load.
 
-## ✨ Features
+## Features
 
 ### Chat Widget
 - Embeddable chat widget for websites
@@ -32,7 +32,7 @@ AI-powered customer support platform with conversational chat interface, session
 - Intent classification and context handling
 - Multi-session support
 
-## 🛠 Tech Stack
+## Tech Stack
 
 **Frontend:**
 - React
