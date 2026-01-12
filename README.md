@@ -1,16 +1,79 @@
-# React + Vite
+# Nova - AI Support Agent Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI-powered customer support platform with conversational chat interface, session management, and analytics dashboard.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Dashboard:** https://nova.mavrikon.net/demo
 
-## React Compiler
+**Demo Credentials:**
+- Email: demo@mavrikon.net
+- Password: Demo123hndwe
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+⚠️ **Note:** Backend is hosted on free tier. First visit may take 30-60 seconds to wake up. This is normal for demo projects. Please wait for initial load.
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Chat Widget
+- Embeddable chat widget for websites
+- Real-time conversational interface
+- Session persistence and history
+- Mobile-responsive design
+
+### Dashboard
+- Manage customer conversations
+- View chat history and session data
+- Analytics and metrics overview
+- Agent performance tracking
+
+### Backend
+- FastAPI backend with MongoDB
+- LangGraph for conversation routing and memory
+- Intent classification and context handling
+- Multi-session support
+
+## 🛠 Tech Stack
+
+**Frontend:**
+- React
+- CSS
+- Context API for state management
+
+**Backend:**
+- FastAPI (Python)
+- MongoDB
+- LangGraph
+- OpenAI/Mistral API
+
+**Deployment:**
+- Frontend: Vercel
+- Backend: Render (free tier)
+- Database: MongoDB Atlas
+
+# Environment Variables
+
+**Frontend (.env):**
+```
+VITE_API_URL=http://localhost:8000
+```
+
+**Backend (.env):**
+```
+MONGODB_URI=your_mongodb_uri
+OPENAI_API_KEY=your_openai_key
+MISTRAL_API_KEY=your_mistralai_key
+
+** Future Improvements **
+
+- [ ] RAG integration for custom knowledge bases
+- [ ] Multi-language support
+- [ ] Advanced analytics dashboard
+- [ ] Voice conversation support
+- [ ] Automated testing suite
+
+## Contact
+
+Tomi Joshua
+- Email: joshua.tomi1@gmail.com
+- LinkedIn: [linkedin.com/in/tomibuildsdifferent](https://linkedin.com/in/tomibuildsdifferent)
+- Portfolio: [tomijosh.netlify.app](https://tomijosh.netlify.app)
