@@ -14,6 +14,10 @@ export default function OnboardingPage({ onComplete }) {
   const [businessDescription, setBusinessDescription] = useState('');
   const [personalityType, setPersonalityType] = useState('friendly');
 
+  // RAG useState
+  const [ragUrls, setRagUrls] = useState(['', '', '', '', '']);
+  const [skipRag, setSkipRag] = useState(false);
+
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -165,8 +169,32 @@ export default function OnboardingPage({ onComplete }) {
           </div>
         )}
 
-        {/* Step 2: Personality & Agent Name */}
+        {/* Step 2: KnowledgeBase Step */}
         {step === 2 && (
+          <div className={styles.form}>
+            <h2>KnowledgeBase (Optional)</h2>
+            <p>Provide links to your FAQ, documentation, or website</p>
+
+            {ragUrls.map((url, index) => (
+              <input 
+                key={index}
+                value={url}
+                onChange={(e) => {
+                  const newUrls = [...ragUrls];
+                  newUrls[index] = e.target.value;
+                  setRagUrls(newUrls);
+                }}
+                placeholder={`URL ${index + 1}`}
+              />
+            ))}
+
+            <button onClick={() => setSkipRag(true)}>Skip</button>
+            <button onClick={() => setStep(3)}>Continue</button>
+          </div>
+        )}
+
+        {/* Step 3: Personality & Agent Name */}
+        {step === 3 && (
           <div className={styles.form}>
             <div className={styles.formGroup}>
               <label className={styles.label}>

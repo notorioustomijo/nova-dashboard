@@ -281,6 +281,22 @@ export default function SettingsPage() {
               )}
             </div>
           </div>
+
+          <div className={styles.section}>
+              <h2>Billing & Subscription</h2>
+
+              <div className={styles.currentPlan}>
+                <h3>Current Plan: {subscription.plan}</h3>
+                <p>Renews: {subscription.expires_at}</p>
+                <button onClick={handleUpgrade}>Upgrade Plan</button>
+                <button onClick={handleCancelSubscription}>Cancel Subscription</button>
+              </div>
+
+              <div className={styles.usageStats}>
+                <p>Conversations this month: {usage.conversations} / {limits.conversations} </p>
+                <p>RAG pages: {usage.rag_pages} / {limits.rag_pages} </p>
+              </div>
+          </div>
         </div>
       </div>
     </div>

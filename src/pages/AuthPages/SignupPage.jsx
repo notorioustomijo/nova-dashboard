@@ -49,6 +49,12 @@ export default function SignupPage({ onSwitchToLogin, onSignupSuccess }) {
           <p className={styles.authSubtitle}>Start your Nova journey</p>
         </div>
 
+        <div className={styles.demoCard}>
+          <a href="mailto:joshua.tomi1@gmail.com?Subject='Request for demo account'">
+            Contact For Demo Account
+          </a>
+        </div>
+
         <div className={styles.authForm}>
           {error && <div className={styles.errorBox}>{error}</div>}
 
