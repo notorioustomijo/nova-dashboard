@@ -54,7 +54,7 @@ export default function OnboardingPage({ onComplete }) {
       }
       setError('');
       setStep(2);
-    } else if (step === 2) {
+    } else if (step === 3) {
       // Validate agent name is not empty
       if (!agentName.trim()) {
         setError('Please provide an agent name');
