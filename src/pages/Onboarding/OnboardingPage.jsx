@@ -188,8 +188,20 @@ export default function OnboardingPage({ onComplete }) {
               />
             ))}
 
-            <button onClick={() => setSkipRag(true)}>Skip</button>
-            <button onClick={() => setStep(3)}>Continue</button>
+            <div className={styles.buttonGroup}>
+              <button 
+                onClick={() => setSkipRag(true)}
+                className={styles.buttonSecondary}
+              >
+                  Skip
+              </button>
+              <button 
+                onClick={() => setStep(3)}
+                className={styles.button}
+              >
+                  Continue
+              </button>
+            </div>
           </div>
         )}
 
