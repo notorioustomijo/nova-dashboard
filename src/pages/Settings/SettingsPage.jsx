@@ -103,14 +103,6 @@ export default function SettingsPage() {
     setTimeout(() => setShowCopiedTooltip(false), 2000);
   };
 
-  if (loading) {
-    return (
-      <div className={styles.page}>
-        <LoadingSpinner message="Loading settings..." />
-      </div>
-    );
-  }
-
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -132,10 +124,19 @@ export default function SettingsPage() {
     }
   };
 
+  if (loading) {
+    return (
+      <div className={styles.page}>
+        <LoadingSpinner message="Loading settings..." />
+      </div>
+    );
+  }
+
   return (
     <div className={styles.page}>
       <title>Settings - Nova</title>
       <meta name="description" content="Customize your Nova profile, including business info, AI personality, and widget integration settings." />
+
       {/* Save toast */}
       {showSaveToast && (
         <div className={styles.toast}>
@@ -177,7 +178,6 @@ export default function SettingsPage() {
               >
                 📋 Copy Code
               </button>
-              {/* Tooltip */}
               {showCopiedTooltip && (
                 <div className={styles.copiedTooltip}>
                   Copied!
@@ -191,7 +191,7 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      {/* Rest of the form */}
+      {/* Business Information */}
       <div className={styles.card}>
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Business Information</h2>
@@ -220,6 +220,7 @@ export default function SettingsPage() {
               className={styles.input}
             />
           </div>
+
           <div className={styles.formDocContainer}>
             <div className={styles.formGroup2}>
               <label className={styles.label}>Business Description</label>
@@ -248,6 +249,7 @@ export default function SettingsPage() {
           </div>
         </div>
 
+        {/* AI Personality */}
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>AI Personality</h2>
           
@@ -281,21 +283,21 @@ export default function SettingsPage() {
               )}
             </div>
           </div>
+        </div>
 
-          <div className={styles.section}>
-              <h2>Billing & Subscription</h2>
-
-              <div className={styles.currentPlan}>
-                <h3>Current Plan: {subscription.plan}</h3>
-                <p>Renews: {subscription.expires_at}</p>
-                <button onClick={handleUpgrade}>Upgrade Plan</button>
-                <button onClick={handleCancelSubscription}>Cancel Subscription</button>
-              </div>
-
-              <div className={styles.usageStats}>
-                <p>Conversations this month: {usage.conversations} / {limits.conversations} </p>
-                <p>RAG pages: {usage.rag_pages} / {limits.rag_pages} </p>
-              </div>
+        {/* Billing & Subscription — placeholder until payments are wired up */}
+        <div className={styles.section}>
+          <h2 className={styles.sectionTitle}>Billing & Subscription</h2>
+          <div style={{
+            padding: '1.5rem',
+            background: '#f9fafb',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb',
+            textAlign: 'center'
+          }}>
+            <p style={{ color: '#6b7280', fontSize: '0.875rem', margin: 0 }}>
+              Subscription management coming soon. Contact support to manage your plan.
+            </p>
           </div>
         </div>
       </div>
